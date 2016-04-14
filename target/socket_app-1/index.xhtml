@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </h:head>
+    <h:body>
+
+        <h4>Enter request details below:</h4>
+        <h:form >
+            <p:growl id="growl" life="2000" />
+            <h:panelGrid id="grid_form_id" columns="2">
+                <p:outputLabel value="User pin"/>
+                <p:inputText value="#{controller.event.userPin}"/>
+
+                <p:outputLabel value="Device id"/>
+                <p:inputText value="#{controller.event.deviceId}"/>
+
+                <p:outputLabel value="Device serial"/>
+                <p:inputText value="#{controller.event.deviceSerial}"/>
+
+                <p:outputLabel value="Device version"/>
+                <p:inputText value="#{controller.event.deviceVersion}"/>
+
+            </h:panelGrid>
+            <p:separator/>
+            <p:commandButton id="submitId"  value="Submit" action="#{controller.addRequest}" />
+        </h:form>
+
+    </h:body>
+</html>
