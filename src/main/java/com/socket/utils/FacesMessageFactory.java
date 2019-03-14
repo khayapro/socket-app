@@ -19,6 +19,6 @@ public class FacesMessageFactory {
     }
 
     public void method() {
-
+        System.out.printf("");
     }
 }
