@@ -44,7 +44,6 @@ public class RequestHandlerServiceTest {
         request = new Request(EventType.Authentication, event);
     }
 
-
     @Test
     public void testHandleMessage() throws Exception {
         service.handleMessage(request);
@@ -57,15 +56,7 @@ public class RequestHandlerServiceTest {
         service.handleMessage(null);
     }
 
-
-
-
-
-
-
-
-
-
-
-
+    public void method() {
+        System.out.println("simple change...");
+    }
 }
