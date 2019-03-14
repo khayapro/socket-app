@@ -33,4 +33,22 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo '********** start deleting directory ********'
+            deleteDir()
+            echo '********** completed deleting directory ********'
+
+        }
+        success {
+            mail to: 'nkmathebula1@gmail.com',
+                    subject: "Success Pipeline: ${currentBuild.fullDisplayName}",
+                    body: "Something is great with ${env.BUILD_URL}"
+        }
+        failure {
+            mail to: 'nkmathebula1@gmail.com',
+                    subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+                    body: "Something is wrong with ${env.BUILD_URL}"
+        }
+    }
 }
