@@ -16,9 +16,6 @@ pipeline {
                 sh 'mvn clean package'
                 echo '********** starting BUILD process ********'
                 echo '********** ---------------------- ********'
-                echo '********** starting DOCKER BUILD process ********'
-                sh "docker build . -t tomcatwebapp:${env.BUILD_ID}"
-                echo '********** starting DOCKER BUILD process ********'
             }
             post {
                 success {
