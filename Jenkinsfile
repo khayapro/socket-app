@@ -24,7 +24,7 @@ pipeline {
 
         stage ('Deploy') {
             steps {
-                timeout(time: 1, unit: 'MINUTE') {
+                timeout(time: 1, unit: 'MINUTES') {
                     input message: 'Approve PROD Deployment'
                 }
                 echo 'Deploy stage - Deploying...'
