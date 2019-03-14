@@ -14,7 +14,17 @@ pipeline {
 
         stage ('Build') {
             steps {
-                echo 'Build stage - Building...'
+                echo '********** starting BUILD process ********'
+                echo 'mvn clean compile'
+                echo '********** starting BUILD process ********'
+            }
+        }
+
+        stage ('Test') {
+            steps {
+                echo '********** starting TEST process ********'
+                echo 'mvn test'
+                echo '********** starting TEST process ********'
             }
         }
 
