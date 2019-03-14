@@ -16,8 +16,10 @@ pipeline {
                 sh 'mvn clean package'
                 echo '********** starting BUILD process ********'
             }
-            success {
-                archiveArtifacts artifacts: '**/target/*.war'
+            post {
+                success {
+                    archiveArtifacts artifacts: '**/target/*.war'
+                }
             }
         }
 
