@@ -17,4 +17,8 @@ public class FacesMessageFactory {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage,  null);
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
+
+    public void method() {
+
+    }
 }
