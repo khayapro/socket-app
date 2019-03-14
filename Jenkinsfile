@@ -10,31 +10,23 @@ pipeline {
     }
 
     stages {
-        stage ('Init') {
-            steps {
-                sh 'echo "PATH = ${PATH}"'
-                sh 'echo "M2_HOME = ${M2_HOME}"'
-            }
-        }
-
         stage ('Build') {
             steps {
                 echo '********** starting BUILD process ********'
-                sh 'mvn clean compile'
+                sh 'mvn clean package'
                 echo '********** starting BUILD process ********'
+            }
+            success {
+                archiveArtifacts artifacts: '**/target/*.war'
             }
         }
 
-        stage ('Test') {
-            steps {
-                echo '********** starting TEST process ********'
-                sh 'mvn test'
-                echo '********** starting TEST process ********'
-            }
-        }
 
         stage ('Deploy') {
             steps {
+                timeout(time: 1, unit: 'MINUTE') {
+                    input message: 'Approve PROD Deployment'
+                }
                 echo 'Deploy stage - Deploying...'
             }
         }
