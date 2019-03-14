@@ -15,7 +15,7 @@ pipeline {
         stage ('Build') {
             steps {
                 echo '********** starting BUILD process ********'
-                echo 'mvn clean compile'
+                sh 'mvn clean compile'
                 echo '********** starting BUILD process ********'
             }
         }
@@ -23,7 +23,7 @@ pipeline {
         stage ('Test') {
             steps {
                 echo '********** starting TEST process ********'
-                echo 'mvn test'
+                sh 'mvn test'
                 echo '********** starting TEST process ********'
             }
         }
