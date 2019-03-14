@@ -4,6 +4,11 @@ pipeline {
         maven 'M3_HOME'
         jdk 'JAVA_HOME'
     }
+
+    triggers {
+        pollSCM "* * * * *"
+    }
+
     stages {
         stage ('Init') {
             steps {
