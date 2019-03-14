@@ -17,7 +17,7 @@ pipeline {
                 echo '********** starting BUILD process ********'
                 echo '********** ---------------------- ********'
                 echo '********** starting DOCKER BUILD process ********'
-                sh "docker build .-t tomcatwebapp:${env.BUILD_ID} package"
+                sh "docker build -t . tomcatwebapp:${env.BUILD_ID} package"
                 echo '********** starting DOCKER BUILD process ********'
             }
             post {
