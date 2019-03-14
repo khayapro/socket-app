@@ -1,15 +1,14 @@
 pipeline {
     agent any
+    tools {
+        maven 'M3_HOME'
+        jdk 'JAVA_HOME'
+    }
     stages {
         stage ('Init') {
             steps {
-                sh 'mvn clean package'
-            }
-            post {
-                success {
-                    echo '***** archiving artificact *****'
-                    archiveArtifacts artifacts: '**/target/*.war'
-                }
+                sh 'echo "PATH = ${PATH}"'
+                sh 'echo "M2_HOME = ${M2_HOME}"'
             }
         }
 
