@@ -32,6 +32,11 @@ pipeline {
                 }
                 echo 'Deploy stage - Deploying...'
             }
+            post {
+                success {
+                    archiveArtifacts artifacts: '**/target/*.tar'
+                }
+            }
         }
     }
     post {
